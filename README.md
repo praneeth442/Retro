@@ -24,8 +24,8 @@ Sample
  curl --location 'http://localhost:8080/retro/create' \
  --header 'Content-Type: application/json' \
  --data '{
- "retroName":"retro1",
- "date":"23/02/2001",
+ "retroName":"1",
+ "date":"23/02/2002",
  "participants":["john"]
  }'
 
@@ -36,7 +36,7 @@ Sample
 * Returns response in xml  if request header is set as Accept: application/xml
 
 Sample url
-curl --location 'http://localhost:8080/get/retros?currentPage=0&pageSize=3' \
+curl --location 'http://localhost:8080/get/retros?currentPage=0&pageSize=1' \
 --header 'Content-Type: application/xml' \
 --header 'Accept: application/xml'
 
@@ -60,9 +60,9 @@ curl --location 'http://localhost:8080/get/retros/date?currentPage=0&pageSize=3&
   curl --location 'http://localhost:8080/feedback/create' \
   --header 'Content-Type: application/json' \
   --data '{
-  "feedBackName":"feedback1",
+  "feedBackName":"feedback",
   "type":"positive",
-  "retroName":"123"
+  "retroName":"1"
   }'
 
 #### Updates FeedBack Record
@@ -72,11 +72,12 @@ curl --location 'http://localhost:8080/get/retros/date?currentPage=0&pageSize=3&
 * Accepts type values are positive,negative,idea,praise
 * Accepts request body in json format
   Sample
-  curl --location 'http://localhost:8080/feedback/update' \
+  curl --location --request PUT 'http://localhost:8080/feedback/update' \
   --header 'Content-Type: application/json' \
   --data '{
-  "feedBackName":"feedback1",
+  "feedBackName":"feedback",
   "type":"positive",
-  "retroName":"123"
+  "body":"sample",
+  "retroName":"1"
   }'
 
